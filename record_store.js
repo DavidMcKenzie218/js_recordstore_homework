@@ -12,6 +12,9 @@ Store.prototype = {
   },
   addRecord: function(record){
     this.stock.push(record);
+  }, 
+  currentStock: function(){
+    return this.stock;
   }
 }
 
