@@ -5,7 +5,7 @@ var assert = require('assert');
 var Store = require('../record_store.js');
 var Record = require('../record.js');
 
-describe("Record Store", function(){
+describe("Record Store:", function(){
 
   var hogsHead;
   var antigone;
@@ -13,6 +13,10 @@ describe("Record Store", function(){
   before(function(){
     hogsHead = new Store("Hogs Head", "Edinburgh");
     antigone = new Record("Antigone", "Heavan Shall Burn", 19.31);
+  })
+
+  beforeEach(function(){
+    hogsHead.reset();
   })
 
   it("has a name", function(){
@@ -30,6 +34,39 @@ describe("Record Store", function(){
   it("can add records to stock", function(){
     hogsHead.addRecord(antigone);
     assert.equal(1, hogsHead.stock.length);
+  })
+
+  it("has a no money", function(){
+    assert.equal(0, hogsHead.balance);
+  })
+
+})
+
+// Create a method that lists the inventory.
+
+describe("Store Buisness:", function(){
+
+  var hogsHead;
+  var antigone;
+  var veto;
+  var iconoclast;
+
+  before(function(){
+    hogsHead = new Store("Hogs Head", "Edinburgh");
+    antigone = new Record("Antigone", "Heavan Shall Burn", 19.31);
+    veto = new Record("VETO", "Hevan Shall Burn", 15.63);
+    iconoclast = new Record("Iconoclast", "Heavan Shall Burn", 9.47);
+  })
+
+  beforeEach(function(){
+    hogsHead.reset();
+    hogsHead.addRecord(antigone);
+    hogsHead.addRecord(veto);
+    hogsHead.addRecord(iconoclast);
+  })
+
+  it("can list the current stock", function(){
+    assert.equal()
   })
 
 })
