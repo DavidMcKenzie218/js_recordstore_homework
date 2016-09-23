@@ -44,6 +44,7 @@ describe("Record Store:", function(){
 
 // Create a method that lists the inventory.
 // Create a method so that the RecordStore can sell a record. Adjust the cash in bank to take into account the price of the record sold
+// Create a method that reports on the financial situation of the store. Cash and value of inventory.
 
 describe("Store Buisness:", function(){
 
@@ -68,6 +69,16 @@ describe("Store Buisness:", function(){
 
   it("can list the current stock", function(){
     assert.deepEqual([antigone, veto, iconoclast], hogsHead.currentStock());
+  })
+
+  it("can sell a record", function(){
+    hogsHead.sellRecord(veto);
+    assert.equal(15.63, hogsHead.balance);
+    assert.deepEqual([antigone, iconoclast], hogsHead.currentStock());
+  })
+
+  it("can return the total value of the store", function(){
+    assert.equal(44.41, hogsHead.storeValue());
   })
 
 })
