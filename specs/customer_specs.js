@@ -46,6 +46,7 @@ describe("Customer:", function(){
   it("purchases an item", function(){
     assert.equal(true, collector.canBuyrecord(antigone));
     assert.equal(1, collector.collection.length);
+    assert.equal(80.69, collector.budget);
   })
 
   it("album is out of budget and cannot be bought", function(){
@@ -56,7 +57,7 @@ describe("Customer:", function(){
   it("Can sell his records", function(){
     collector.canBuyrecord(antigone);
     collector.sellRecord(antigone);
-    assert.equal(119.31, collector.budget);
+    assert.equal(100, collector.budget);
     assert.deepEqual([], collector.collection);
   })
 

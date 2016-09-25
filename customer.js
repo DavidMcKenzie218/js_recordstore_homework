@@ -8,6 +8,7 @@ var Customer = function(){
 Customer.prototype = {
   reset: function(){
     this.collection = [];
+    this.budget = 100;
   },
   addRecord: function(record){
     this.collection.push(record);
@@ -22,6 +23,7 @@ Customer.prototype = {
   canBuyrecord: function(record){
     if(record.price <= this.budget){
       this.addRecord(record);
+      this.budget -= record.price;
       return true;
     }else{
       return false;
